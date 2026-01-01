@@ -35,27 +35,25 @@ export function Nav() {
     <SidebarMenu className="p-2">
       {navItems.map((item) => (
         <SidebarMenuItem key={item.href}>
-          <Link href={item.href} legacyBehavior passHref>
-            <SidebarMenuButton
-              asChild
-              isActive={pathname === item.href}
-              className={cn(
-                "group-data-[collapsible=icon]:justify-center",
-                "data-[active=true]:bg-primary data-[active=true]:text-primary-foreground data-[active=true]:hover:bg-primary/90"
-              )}
-              tooltip={{
-                children: item.label,
-                className: "bg-primary text-primary-foreground",
-              }}
-            >
-              <a>
-                <item.icon className="h-5 w-5" />
-                <span className="group-data-[collapsible=icon]:hidden">
-                  {item.label}
-                </span>
-              </a>
-            </SidebarMenuButton>
-          </Link>
+          <SidebarMenuButton
+            asChild
+            isActive={pathname === item.href}
+            className={cn(
+              "group-data-[collapsible=icon]:justify-center",
+              "data-[active=true]:bg-primary data-[active=true]:text-primary-foreground data-[active=true]:hover:bg-primary/90"
+            )}
+            tooltip={{
+              children: item.label,
+              className: "bg-primary text-primary-foreground",
+            }}
+          >
+            <Link href={item.href}>
+              <item.icon className="h-5 w-5" />
+              <span className="group-data-[collapsible=icon]:hidden">
+                {item.label}
+              </span>
+            </Link>
+          </SidebarMenuButton>
         </SidebarMenuItem>
       ))}
     </SidebarMenu>
