@@ -1,0 +1,4 @@
+# Firestore rules removed — this project now uses Supabase Postgres with Row Level Security (RLS).
+# Create equivalent RLS policies in the Supabase SQL editor, e.g.:
+#   alter table income enable row level security;
+#   create policy "Users manage own income" on income for all using (auth.uid() = user_id);
